@@ -43,6 +43,7 @@ p{
     flex-direction: column;
     gap: 8px;
     border-radius: 12px;
+    padding: 8px;
 }
 #inputs-form{
     display: flex;
@@ -89,4 +90,18 @@ ul{
     justify-content: space-between;
     border: #000 solid;
     
+}
+#form-title{
+    display: flex;
+}
+#error-name{
+    color: red;
+    font-size: 0.7rem;
+    padding-left:8px ;
+    
+}
+#error-email{
+    color: red;
+    font-size: 0.7rem;
+    padding-left:8px ;
 }

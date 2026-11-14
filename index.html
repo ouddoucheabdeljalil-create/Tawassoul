@@ -25,18 +25,18 @@
                 <div class="statistic">
                     <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                     <p>Total des participants</p>
-                    <p><span>0</span>inscrits</p>
+                    <p><span>0 </span> inscrits</p>
                 </div>
                 <div class="statistic">
                     <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                     <p>Participants sélectionnés</p>
-                    <p><span>0</span>sur 0</p>
+                    <p><span>0 </span> sur 0</p>
 
                 </div>
             </div>
         </section>
         <section id="form-space">
-            <div>
+            <div id="form-title">
                 <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                 <h2>Nouveau participant</h2>
             </div>
@@ -44,7 +44,7 @@
             <form action="" id="inputs-form">
                 <label for="fullName">Nom complet <span class="star">*</span></label>
                 <input type="text" id="fullName" name="fullName" class="inputs" placeholder="Ex : abdelajlil ouddouche">
-                <span></span>
+                <span  id="error-name" ></span>
 
                 <label for="select">Formation <span class="star">*</span></label>
                 <select name="select" id="select" class="inputs">
@@ -54,8 +54,8 @@
                 </select>
                 <label for="email-input">Adresse email <span class="star">*</span></label>
                 <input type="email" id="email-input" name="email-input" class="inputs" placeholder=" Ex : abdeljalil@gmail.com">
-                <span></span>
-                <div id="btn-div">
+                <span  id="error-email"></span>
+                <div  id="btn-div">
                 <button id="btn-submit">Ajoute le participant</button>
                 </div>
             </form>
@@ -92,5 +92,5 @@
         </section>
     </main>
 </body>
-
+<script src="script.js"></script>
 </html>
