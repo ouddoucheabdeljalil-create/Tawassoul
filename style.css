@@ -1,4 +1,9 @@
-
+main{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 #logo{
     height: 4rem;
     width: auto;
@@ -7,7 +12,81 @@ body{
     background: #F3F4F6 ;
     margin: 0px;
     padding: 0px;
+    
+    font-family: 'Poppins', sans-serif;
+
 }
 header{
     background: #fff;
+}
+p{
+    font-family: 'Poppins', sans-serif ;
+    font-style: normal ;
+    font-size: small;
+}
+#statistic-div{
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    
+}
+.statistic{
+    background: #fff;
+   
+    border-radius: 12px;
+    font-size: small;
+    
+}
+#form-space{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 12px;
+}
+#inputs-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+   
+}
+.inputs{
+    height: 40px;
+    width: 95%;
+    border: #F3F4F6 solid;
+    border-radius: 12px;
+}
+.star{
+    color: red;
+}
+#btn-submit{
+    width: 65%;
+    height: 38px;
+    background: #059669 ;
+    border-radius: 12px;
+    color: #fff;
+}
+#btn-div{
+    display: flex;
+    justify-content: center;
+}
+#select-All{
+    display: flex;
+    gap: 32px;
+}
+#list-place{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+.lists{
+    display: flex;
+    justify-content: space-between;
+    border: #000 solid;
+    
 }

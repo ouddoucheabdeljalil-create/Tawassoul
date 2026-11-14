@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Eagle+Lake&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <title>Tawassoul</title>
 </head>
 
@@ -16,17 +21,74 @@
         <section>
             <h1>Gestionnaire des participants.</h1>
             <p>Chaque inscription, un nouveau pas vers l’avenir.</p>
+            <div id="statistic-div">
+                <div class="statistic">
+                    <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <p>Total des participants</p>
+                    <p><span>0</span>inscrits</p>
+                </div>
+                <div class="statistic">
+                    <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <p>Participants sélectionnés</p>
+                    <p><span>0</span>sur 0</p>
+
+                </div>
+            </div>
+        </section>
+        <section id="form-space">
             <div>
                 <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                <p>Total des participants</p>
-                <p><span>0</span>inscrits</p>
+                <h2>Nouveau participant</h2>
             </div>
+            <p>Une nouvelle ambition commence ici</p>
+            <form action="" id="inputs-form">
+                <label for="fullName">Nom complet <span class="star">*</span></label>
+                <input type="text" id="fullName" name="fullName" class="inputs" placeholder="Ex : abdelajlil ouddouche">
+                <span></span>
+
+                <label for="select">Formation <span class="star">*</span></label>
+                <select name="select" id="select" class="inputs">
+                    <option value="">Bureautique</option>
+                    <option value="">Web</option>
+                    <option value="">Langues</option>
+                </select>
+                <label for="email-input">Adresse email <span class="star">*</span></label>
+                <input type="email" id="email-input" name="email-input" class="inputs" placeholder=" Ex : abdeljalil@gmail.com">
+                <span></span>
+                <div id="btn-div">
+                <button id="btn-submit">Ajoute le participant</button>
+                </div>
+            </form>
+        </section>
+        <section id="list-place">
+            <h2>Liste des participants <span>1</span></h2>
+            <form action="">
+            <input type="search" id="search" class="inputs" placeholder="rechercher un nom">
+            </form>
             <div>
-                <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                <p>Participants sélectionnés</p>
-                <p><span>0</span>sur 0</p>
-                
+                <button>Toutes <span>1</span></button>
+                <button>Bureautique <span>1</span></button>
+                <button>web <span>1</span></button>
+                <button>Langues <span>1</span></button>
             </div>
+            <div id="select-All">
+                <form action="">
+                    <input type="checkbox" id="checkbox" name="checkbox">
+                    <label for="checkbox">Tout Sélectioner</label>
+                </form>
+                <button>Supprimer la sélection <span>1</span></button>
+            </div>
+            <ul>
+                <li class="lists">
+                    <input type="checkbox">
+                    <div>
+                        <p>abdelajlil</p>
+                        <p>abdeljalil@gmail.com</p>
+                    </div>
+                    <p>dev</p>
+                    <button>Supprimer</button>
+                </li>
+            </ul>
         </section>
     </main>
 </body>
