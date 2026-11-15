@@ -7,14 +7,15 @@ const emailrror = document.getElementById('error-email')
 const select = document.getElementById("select")
 const list = document.getElementById("list")
 const search = document.getElementById('search')
-
+const count = document.querySelectorAll('.count')
+const formationFilter = document.getElementById('Formation')
 
 const data =  getFromLocalStorage() ;
 function validRegex() {
     
     let x = false;
     let y = false
-    const data = []
+    const data = getFromLocalStorage() || []
     const NameRegex = /^[a-zA-Z ]{3,}$/;
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/
     form.addEventListener('submit', (e) => {
@@ -36,9 +37,10 @@ function validRegex() {
         console.log(x)
         console.log(y)
         if (x === true && y === true) {
+            count.forEach(element => element.innerHTML = data.length+1)
             data.push({ nom: fullName.value, email: email.value, formation: select.value })
             setToLocalStoeage(data)
-            list.innerHTML = ''
+            // list.innerHTML = ''
             afficher(data)
             fullName.value = ''
             email.value = ''
@@ -57,10 +59,12 @@ function getFromLocalStorage() {
 }
 
 function afficherList() {
+    // list.innerHTML=''
     afficher(data)
   
 }
 function afficher(data){
+     list.innerHTML=''
     return  data.forEach(element => {
         const li = document.createElement('li')
         li.className = 'lists'
@@ -78,14 +82,31 @@ function rechercher(){
    
     search.addEventListener('input', (e) => {
         let word = search.value.toLowerCase()
-        let filtred = data.filter(e => e.nom.toLowerCase().includes(word))
-        list.innerHTML=''
+        let filtred = data.filter(e => e.nom.toLowerCase().includes(word) || e.email.toLowerCase().includes(word))
+        // list.innerHTML=''
        afficher(filtred)
+       if(word === ''){
+        // list.innerHTML=''
+        afficher(data)}
         console.log(filtred)
     })
     
 }
+function filterByCategory(){
+    formationFilter.addEventListener('click', (e) => {
+       
+        let x = data.filter(element => element.formation === e.target.id )
+        afficher(x)
+       
+        
+        if(e.target.id === 'Toutes' || e.target.id === formationFilter.id)afficher(data);
+        
+        
+    })
+}
 
+
+filterByCategory()
 rechercher()
 validRegex()
 afficherList()
