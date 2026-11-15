@@ -5,9 +5,13 @@ const btnSubmit = document.getElementById('btn-submit')
 const nameError = document.getElementById('error-name')
 const emailrror = document.getElementById('error-email')
 const select = document.getElementById("select")
-const list = document.getElementById("lists")
+const list = document.getElementById("list")
+const search = document.getElementById('search')
 
+
+const data =  getFromLocalStorage() ;
 function validRegex() {
+    
     let x = false;
     let y = false
     const data = []
@@ -34,6 +38,8 @@ function validRegex() {
         if (x === true && y === true) {
             data.push({ nom: fullName.value, email: email.value, formation: select.value })
             setToLocalStoeage(data)
+            list.innerHTML = ''
+            afficher(data)
             fullName.value = ''
             email.value = ''
         }
@@ -46,13 +52,40 @@ function validRegex() {
 function setToLocalStoeage(data) {
     localStorage.setItem('list', JSON.stringify(data))
 }
-function getFromLocalStorage(){
-    return JSON.parse(localStorage.getItem('list'))
+function getFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('list')) || []
 }
 
-// function afficherList(){
+function afficherList() {
+    afficher(data)
+  
+}
+function afficher(data){
+    return  data.forEach(element => {
+        const li = document.createElement('li')
+        li.className = 'lists'
+        li.innerHTML = `<input type="checkbox">
+                    <div>
+                        <p>${element.nom}</p>
+                        <p>${element.email}</p>
+                    </div>
+                    <p>${element.formation}</p>
+                    <button>Supprimer</button>`
+        list.appendChild(li)
+    })
+}
+function rechercher(){
+   
+    search.addEventListener('input', (e) => {
+        let word = search.value.toLowerCase()
+        let filtred = data.filter(e => e.nom.toLowerCase().includes(word))
+        list.innerHTML=''
+       afficher(filtred)
+        console.log(filtred)
+    })
+    
+}
 
-// }
-
-
+rechercher()
 validRegex()
+afficherList()
