@@ -9,25 +9,27 @@ const list = document.getElementById("list")
 const search = document.getElementById('search')
 const count = document.querySelectorAll('.count')
 const formationFilter = document.getElementById('Formation')
+const card = document.querySelectorAll('.lists')
+
 
 const data =  getFromLocalStorage() ;
 function validRegex() {
     
     let x = false;
     let y = false
-    const data = getFromLocalStorage() || []
+    // const data = getFromLocalStorage() || []
     const NameRegex = /^[a-zA-Z ]{3,}$/;
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        if (!NameRegex.test(fullName.value)) {
+        if (!NameRegex.card(fullName.value)) {
             nameError.textContent = 'Le nom doit contenir au moins 3 lettres, sans chiffres ni caractères spéciaux.'
         }
         else {
             nameError.textContent = ''
             x = true
         }
-        if (!emailRegex.test(email.value)) {
+        if (!emailRegex.card(email.value)) {
             emailrror.textContent = 'Saisissez un email valide, avec un @ et un point après.'
         }
         else {
@@ -38,9 +40,9 @@ function validRegex() {
         console.log(y)
         if (x === true && y === true) {
             count.forEach(element => element.innerHTML = data.length+1)
-            data.push({ nom: fullName.value, email: email.value, formation: select.value })
+            data.push({id:data.length+1, nom: fullName.value, email: email.value, formation: select.value })
             setToLocalStoeage(data)
-            // list.innerHTML = ''
+            //
             afficher(data)
             fullName.value = ''
             email.value = ''
@@ -59,8 +61,8 @@ function getFromLocalStorage() {
 }
 
 function afficherList() {
-    // list.innerHTML=''
-    afficher(data)
+    
+    afficher(getFromLocalStorage())
   
 }
 function afficher(data){
@@ -68,7 +70,8 @@ function afficher(data){
     return  data.forEach(element => {
         const li = document.createElement('li')
         li.className = 'lists'
-        li.innerHTML = `<input type="checkbox">
+        li.dataset.id = element.id
+        li.innerHTML = `<input class"check" type="checkbox">
                     <div>
                         <p>${element.nom}</p>
                         <p>${element.email}</p>
@@ -76,18 +79,17 @@ function afficher(data){
                     <p>${element.formation}</p>
                     <button>Supprimer</button>`
         list.appendChild(li)
+        console.log(checkBox)
     })
 }
 function rechercher(){
    
-    search.addEventListener('input', (e) => {
+    search.addEventListener('input', () => {
         let word = search.value.toLowerCase()
-        let filtred = data.filter(e => e.nom.toLowerCase().includes(word) || e.email.toLowerCase().includes(word))
-        // list.innerHTML=''
+        let filtred = getFromLocalStorage().filter(e => e.nom.toLowerCase().includes(word) || e.email.toLowerCase().includes(word))
        afficher(filtred)
        if(word === ''){
-        // list.innerHTML=''
-        afficher(data)}
+        afficher(getFromLocalStorage())}
         console.log(filtred)
     })
     
@@ -104,8 +106,19 @@ function filterByCategory(){
         
     })
 }
+function Supprimer() {
+    
+    list.addEventListener('click', (e) => {
+        if(e.target.tagName === 'BUTTON'){
+           console.log( e.target.closest('.lists').dataset.id)
+           const sup = getFromLocalStorage().filter(element => element.id !== Number(e.target.closest('.lists').dataset.id)) 
+           setToLocalStoeage(sup)
+           afficher(sup)
+        }
+    })
+}
 
-
+Supprimer()
 filterByCategory()
 rechercher()
 validRegex()
