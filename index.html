@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -14,72 +14,80 @@
 </head>
 
 <body>
-    <header>
-        <img src="assest/tawassoul logo.png" alt="" id="logo">
-    </header>
-    <main>
-        <section>
+
+    <main >
+        <header>
+            <img src="assest/tawassoul logo.png" alt="" id="logo">
+        </header>
+        <section id="first-section">
             <h1>Gestionnaire des participants.</h1>
             <p>Chaque inscription, un nouveau pas vers l’avenir.</p>
             <div id="statistic-div">
                 <div class="statistic">
-                    <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                    <p>Total des participants</p>
-                    <p><span class="count">0 </span> inscrits</p>
+                    <img src="assest/users.svg" alt="" class="icons">
+                    <div>
+                        <p>Total des participants</p>
+                        <p><span class="count num" id="count1">0 </span> inscrits</p>
+                    </div>
                 </div>
                 <div class="statistic">
-                    <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                    <p>Participants sélectionnés</p>
-                    <p><span>0 </span> sur <span class="count">0</span></p>
-
+                    <img src="assest/doublecheck.svg" alt="" class="icons">
+                    <div>
+                        <p>Participants sélectionnés</p>
+                        <p><span class="num">0 </span> sur <span class="count">0</span></p>
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="form-space">
-            <div id="form-title">
-                <img src="assest/shopping_cart_24dp_0D73E7_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                <h2>Nouveau participant</h2>
-            </div>
-            <p>Une nouvelle ambition commence ici</p>
-            <form action="" id="inputs-form">
-                <label for="fullName">Nom complet <span class="star">*</span></label>
-                <input type="text" id="fullName" name="fullName" class="inputs" placeholder="Ex : abdelajlil ouddouche">
-                <span  id="error-name" ></span>
-
-                <label for="select">Formation <span class="star">*</span></label>
-                <select name="select" id="select" class="inputs">
-                    <option value="Bureautique">Bureautique</option>
-                    <option value="Web">Web</option>
-                    <option value="Langues">Langues</option>
-                </select>
-                <label for="email-input">Adresse email <span class="star">*</span></label>
-                <input type="text" id="email-input" name="email-input" class="inputs" placeholder=" Ex : abdeljalil@gmail.com">
-                <span  id="error-email"></span>
-                <div  id="btn-div">
-                <button id="btn-submit">Ajoute le participant</button>
+        <div id="second-section">
+            <section id="form-space">
+                <div id="form-title">
+                    <img src="assest/person_add.svg" alt="" class="icons">
+                    <h2>Nouveau participant</h2>
                 </div>
-            </form>
-        </section>
-        <section id="list-place">
-            <h2>Liste des participants <span>1</span></h2>
-            <form action="">
-            <input type="search" id="search" class="inputs" placeholder="rechercher un nom">
-            </form>
-            <div id="Formation">
-                <button id="Toutes">Toutes <span>1</span></button>
-                <button id="Bureautique">Bureautique <span>1</span></button>
-                <button id="Web">web <span>1</span></button>
-                <button id="Langues">Langues <span>1</span></button>
-            </div>
-            <div id="select-All">
-                <form action="">
-                    <input type="checkbox" id="checkbox" name="checkbox">
-                    <label for="checkbox">Tout Sélectioner</label>
+                <p>Une nouvelle ambition commence ici</p>
+                <form action="" id="inputs-form">
+                    <label for="fullName">Nom complet <span class="star">*</span></label>
+                    <input type="text" id="fullName" name="fullName" class="inputs"
+                        placeholder="Ex : abdelajlil ouddouche">
+                    <span id="error-name"></span>
+
+                    <label for="select">Formation <span class="star">*</span></label>
+                    <select name="select" id="select" class="inputs">
+                        <option value="Bureautique">Bureautique</option>
+                        <option value="Web">Web</option>
+                        <option value="Langues">Langues</option>
+                    </select>
+                    <label for="email-input">Adresse email <span class="star">*</span></label>
+                    <input type="text" id="email-input" name="email-input" class="inputs"
+                        placeholder=" Ex : abdeljalil@gmail.com">
+                    <span id="error-email"></span>
+                    <div id="btn-div">
+                        <button id="btn-submit">Ajoute le participant</button>
+                    </div>
                 </form>
-                <button>Supprimer la sélection <span>1</span></button>
-            </div>
-            <ul id="list">
-                <!-- <li class="lists">
+                <img src="assest/bg-ajoute1.png" alt="" id="banner">
+            </section>
+            <section id="list-place">
+                <h2>Liste des participants </h2>
+                <form action="">
+                    <input type="search" id="search" class="inputs" placeholder="rechercher un nom">
+                </form>
+                <div id="Formation">
+                    <button class="btns" id="Toutes">Toutes <span id="Tout">0</span></button>
+                    <button class="btns" id="Bureautique">Bureautique <span id="bure">0</span></button>
+                    <button class="btns" id="Web">web <span id="web">0</span></button>
+                    <button class="btns" id="Langues">Langues <span id="lang">0</span></button>
+                </div>
+                <div id="select-All">
+                    <form action="">
+                        <input type="checkbox" id="checkbox" name="checkbox">
+                        <label for="checkbox">Tout Sélectioner</label>
+                    </form>
+                    <button>Supprimer la sélection <span>1</span></button>
+                </div>
+                <ul id="list">
+                    <!-- <li class="lists">
                     <input type="checkbox" >
                     <div>
                         <p>abdelajlil</p>
@@ -88,9 +96,15 @@
                     <p>dev</p>
                     <button>Supprimer</button>
                 </li> -->
-            </ul>
-        </section>
+                </ul>
+            </section>
+        </div>
     </main>
+    <footer>
+        <p>© 2026 Tawassoul. Ensemble, vers demain.</p>
+        <p>Fait pour ceux qui font avancer les autres.</p>
+    </footer>
 </body>
 <script src="script.js"></script>
+
 </html>
